@@ -1,0 +1,16 @@
+version: '3.7'
+
+secrets:
+  pgpass:
+    file: ./pgpass
+
+services:
+
+  postgres:
+    image: lovelysystems/docker-postgres:dev
+    ports:
+    - "35432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+    - "./volumes/postgres/data:/var/lib/postgresql/data"
