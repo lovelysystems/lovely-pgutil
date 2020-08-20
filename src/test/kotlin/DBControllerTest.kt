@@ -1,6 +1,7 @@
+package ls.pgutil
+
 import io.kotest.matchers.file.shouldContainNFiles
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.string.shouldBeBlank
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import org.testcontainers.images.builder.ImageFromDockerfile
@@ -77,11 +78,8 @@ internal class DBControllerTest {
             )
         )
         db.diff(outDir)
-        outDir shouldContainNFiles 2
-
-        // no changes in schema public
-        outDir.resolve("public.sql").readText().shouldBeBlank()
-
+        // no changes in schema public so we just have one file
+        outDir shouldContainNFiles 1
         // changes for schema internal is in its own file
         outDir.resolve("internal.sql").readText() shouldBe """
             create schema if not exists "internal";

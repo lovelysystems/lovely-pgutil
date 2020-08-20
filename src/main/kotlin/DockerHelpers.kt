@@ -1,3 +1,5 @@
+package ls.pgutil
+
 import com.github.dockerjava.core.command.ExecStartResultCallback
 import org.testcontainers.containers.GenericContainer
 import java.io.ByteArrayOutputStream
@@ -19,7 +21,7 @@ class ExecResult(
 }
 
 /**
- * special exec function, since testcontainers adds newlines to the result
+ * special ls.pgutil.exec function, since testcontainers adds newlines to the result
  * see https://github.com/testcontainers/testcontainers-java/issues/1854
  */
 fun GenericContainer<*>.exec(vararg command: String, allowedExitCodes: Collection<Long> = listOf(0L)): ExecResult {
@@ -33,7 +35,7 @@ fun GenericContainer<*>.exec(vararg command: String, allowedExitCodes: Collectio
     val exitCode = dockerClient.inspectExecCmd(execCreateCmdResponse.id).exec().exitCodeLong
     val res = ExecResult(exitCode, outStream, errStream)
     if (!allowedExitCodes.contains(exitCode)) {
-        error("exec failed with code:$exitCode error:\n${res.errText()}")
+        error("ls.pgutil.exec failed with code:$exitCode error:\n${res.errText()}")
     }
     return res
 }
