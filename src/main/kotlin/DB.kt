@@ -9,7 +9,6 @@ import java.io.File
 
 val LOGGER = KotlinLogging.logger {}
 
-
 class MigraContainer(
     private val dbContainer: VanillaDBContainer,
     private val dbURI: String,
@@ -47,7 +46,6 @@ class MigraContainer(
         )
         return res.outText().trim() + '\n'
     }
-
 }
 
 class VanillaDBContainer(imageName: String) :
@@ -80,7 +78,9 @@ class DBSetupContainer(private val dbContainer: VanillaDBContainer, private val 
             mapOf(
                 "PGUSER" to "postgres",
                 "PGHOST" to "postgres",
-                "PGPASSWORD" to "postgres"
+                "PGPASSWORD" to "postgres",
+                "PGDATABASE" to "postgres",
+                "PGPORT" to "5432"
             )
         )
         withNetwork(dbContainer.network)
