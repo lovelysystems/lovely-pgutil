@@ -1,3 +1,5 @@
+package ls.pgutil
+
 import mu.KotlinLogging
 import org.testcontainers.containers.GenericContainer
 import org.testcontainers.containers.Network

@@ -23,7 +23,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "CliKt"
+    mainClassName = "ls.pgutil.CliKt"
     applicationName = "pgutil"
 }
 

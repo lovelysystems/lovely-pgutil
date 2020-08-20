@@ -1,3 +1,5 @@
+package ls.pgutil
+
 fun String?.splitToList(): List<String>? {
     return this?.split("\\s".toRegex())?.takeIf { it.isNotEmpty() }
 }
