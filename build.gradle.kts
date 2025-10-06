@@ -29,7 +29,7 @@ application {
 
 lovely {
     gitProject()
-    dockerProject("lovelysystems/pgutil")
+    dockerProject("ghcr.io/lovelysystems/pgutil")
     dockerFiles.from(tasks["distTar"].outputs)
 }
 
