@@ -63,7 +63,7 @@ docker run --rm \
   -e SCHEMAS="backend frontend" \
   -v "$PWD/out:/out" \
   -v "/var/run/docker.sock:/var/run/docker.sock" \
-  lovelysystems/pgutil:dev pgutil diff /out
+  ghcr.io/lovelysystems/pgutil:dev pgutil diff /out
 ```
 
 The above example will generate a file for every changed schema in the `./out` directory.

@@ -46,7 +46,7 @@ internal class DBControllerTest {
         val db = DBController(
             Config(
                 dockerImages = listOf(imageName),
-                pgImage = "lovelysystems/docker-postgres:dev",
+                pgImage = "ghcr.io/lovelysystems/docker-postgres:dev",
                 dbUri = "postgres:postgres@postgres:5432/target",
                 dbName = "vanilla"
             )
@@ -71,7 +71,7 @@ internal class DBControllerTest {
         val db = DBController(
             Config(
                 dockerImages = listOf(imageName),
-                pgImage = "lovelysystems/docker-postgres:dev",
+                pgImage = "ghcr.io/lovelysystems/docker-postgres:dev",
                 dbUri = "postgres:postgres@postgres:5432/target",
                 dbName = "vanilla",
                 schemas = listOf("public", "internal"),
